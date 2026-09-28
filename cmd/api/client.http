@@ -1,6 +1,6 @@
-# HTTP client for encode_decode_json, for the VS Code "REST Client" extension (humao.rest-client).
+# HTTP client for social-go's API, for the VS Code "REST Client" extension (humao.rest-client).
 #
-# 1. Start the server:  go run .      (from encode_decode_json/)
+# 1. Start the server:  go run ./cmd/api      (from social-go/)
 # 2. Click "Send Request" above any request below (or Cmd+Alt+R with the cursor inside it).
 # 3. The response opens in a side panel: status line, headers, body.
 #
@@ -9,11 +9,9 @@
 #   @name = value        a file variable, used as {{name}}
 #   # @name xyz          names a request, so later requests can use {{xyz.response.body...}}
 #   blank line           REQUIRED between headers and body
-#
-# Data lives in memory, so restarting the server empties the list.
 
 @baseUrl = http://localhost:8080
 @contentType = application/json
 
-### 1. List users (expect 200 and [] on a fresh server)
+### 1. Health check (expect 200 OK, body "ok", Content-Type text/plain)
 GET {{baseUrl}}/v1/health
